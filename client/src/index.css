@@ -1,0 +1,4 @@
+/* Moved inline styles from App.tsx to CSS */
+h3.app {
+  color: red;
+}

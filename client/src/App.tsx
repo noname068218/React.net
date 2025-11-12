@@ -14,9 +14,7 @@ function App() {
 
   return (
     <>
-      <h3 className='app' style={{color: 'red'}}>
-        Reactivities
-      </h3>
+      <h3 className='app'>Reactivities</h3>
       <List>
         {activities.map((activity) => (
           <ListItem key={activity.id}>

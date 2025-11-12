@@ -1,0 +1,11 @@
+{
+  "Solution": "Reactivities/React19&&Mobx.sln",
+  "EnableRoslynAnalyzers": true,
+  "EnableEditorConfigSupport": true,
+  "EnableImportCompletion": true,
+  "OrganizeImportsOnFormat": true,
+  "MsBuild": {
+    "LoadProjectsOnDemand": false
+  }
+}
+

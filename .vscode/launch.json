@@ -1,0 +1,79 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            // Launch and debug the API project (F5 to start)
+            "name": "Launch API (Debug)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            // Path to the compiled API.dll
+            "program": "${workspaceFolder}/Reactivities/API/bin/Debug/net9.0/API.dll",
+            "args": [],
+            // Working directory for the API
+            "cwd": "${workspaceFolder}/Reactivities/API",
+            "stopAtEntry": false,
+            // Don't open browser automatically (useful for API development)
+            "launchBrowser": {
+                "enabled": false
+            },
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development",
+                "ASPNETCORE_URLS": "https://localhost:5001"
+            },
+            // Show console output in Debug Console
+            "console": "internalConsole",
+            "internalConsoleOptions": "openOnSessionStart",
+            // Enable debug symbols
+            "justMyCode": false,
+            "suppressJITOptimizations": true,
+            "enableStepFiltering": false,
+            "logging": {
+                "moduleLoad": false,
+                "engineLogging": false
+            }
+        },
+        {
+            // Launch API and open browser with Swagger
+            "name": "Launch API + Browser",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/Reactivities/API/bin/Debug/net9.0/API.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/Reactivities/API",
+            "stopAtEntry": false,
+            // Automatically open browser when API starts
+            "serverReadyAction": {
+                "action": "openExternally",
+                "pattern": "\\bNow listening on:\\s+(https?://\\S+)",
+                "uriFormat": "%s/swagger"
+            },
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development",
+                "ASPNETCORE_URLS": "https://localhost:5001"
+            },
+            "console": "internalConsole"
+        },
+        {
+            // Attach debugger to already running process
+            "name": "Attach to Process",
+            "type": "coreclr",
+            "request": "attach",
+            "processId": "${command:pickProcess}"
+        }
+    ],
+    "compounds": [
+        {
+            // Launch both API and client together
+            "name": "API + Client (Full Stack)",
+            "configurations": ["Launch API (Debug)"],
+            "preLaunchTask": "build",
+            "presentation": {
+                "hidden": false,
+                "group": "fullstack",
+                "order": 1
+            }
+        }
+    ]
+}
